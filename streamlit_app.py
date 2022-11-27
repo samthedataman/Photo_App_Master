@@ -6,7 +6,6 @@ from PIL.ExifTags import TAGS
 from pathlib import Path
 import os
 from PIL import ImageEnhance
-import oauth2client
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 from os import listdir
