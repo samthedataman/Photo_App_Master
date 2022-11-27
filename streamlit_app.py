@@ -12,19 +12,21 @@ import gspread
 from os import listdir
 import datetime
 from random import choice
-
+from google.oauth2 import service_account
 from datetime import datetime
 from gspread_pandas import Spread,Client
 
-scopes = ['https://www.googleapis.com/auth/spreadsheets', 
+
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],scopes=['https://www.googleapis.com/auth/spreadsheets', 
           "https://www.googleapis.com/auth/drive.file", 
           "https://www.googleapis.com/auth/drive",
           "https://www.googleapis.com/auth/photoslibrary", 
         "https://www.googleapis.com/auth/photoslibrary.readonly",
-        "https://www.googleapis.com/auth/photoslibrary.readonly.appcreateddata"]
+        "https://www.googleapis.com/auth/photoslibrary.readonly.appcreateddata"],)
 
 def google_sheets(CRED_PATH,SHEET_NAME,SCOPE_LIST):
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(F'{CRED_PATH}', SCOPE_LIST)
+    credentials = credentials
     client = Client(scope=SCOPE_LIST,creds=credentials)
     spreadsheetname = SHEET_NAME
     spread = Spread(spreadsheetname,client = client)
