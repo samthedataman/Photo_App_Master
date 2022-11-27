@@ -69,7 +69,7 @@ def image_meta(path):
 
 
 
-sh,worksheet_list,spread = google_sheets('/Users/samsavage/Desktop/Streamlit App/.streamlit/poocoin-331423-6227f4a5365e.json',"Photo_App",scopes)
+sh,worksheet_list,spread = google_sheets('https://github.com/samthedataman/Photo_App_Master/blob/main/poocoin-331423-6227f4a5365e.json',"Photo_App",scopes)
 
 df = load_the_spreadsheet('Comment_Data')
 
@@ -102,10 +102,10 @@ user_comments = st.write(f"""Here is what others are saying:
 
 \" {random_comment_choice_2[0]} \" """)
 
-link='Follow me on IG @  [link](https://www.instagram.com/samthematzahman/?hl=en/)'
+link='Follow me on IG @  [link](https://www.instagram.com/samuelsavage1/)'
 st.markdown(link,unsafe_allow_html=True)
 #opening the image
-PATH = os.listdir('/Users/samsavage/Desktop/2022_Thanksgiving')
+PATH = os.listdir(f'/Photo_App_Master/photos/{i}')
 
 bightness_slider_default = 1.0
 contrast_slider_default = 1.0
@@ -153,21 +153,21 @@ user_feedback = []
 for count,i in enumerate(list1):
     try:
         with col1:
-            image_meta(f'/Users/samsavage/Desktop/2022_Thanksgiving/{i}')
+            image_meta(f'https://github.com/samthedataman/Photo_App_Master/tree/main/photos/{i}')
     except:
         print("image not available")
     continue
 for count,i in enumerate(list2):
     try:
         with col2:
-            image_meta(f'/Users/samsavage/Desktop/2022_Thanksgiving/{i}')
+            image_meta(f'https://github.com/samthedataman/Photo_App_Master/tree/main/photos/{i}')
     except:
         print("image not available")
     continue
 for count,i in enumerate(list3):
     try:
         with col3:
-            image_meta(f'/Users/samsavage/Desktop/2022_Thanksgiving/{i}')
+            image_meta(f'https://github.com/samthedataman/Photo_App_Master/tree/main/photos/{i}')
     except:
         print("image not available")
     continue
